@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
-    imports: [UserModule],
-    exports: [UserModule],
+    imports: [UserModule, AdminModule],
+    exports: [UserModule, AdminModule],
 })
 export class DomainModule {}

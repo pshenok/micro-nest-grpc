@@ -2,6 +2,7 @@ import { Options } from '@mikro-orm/core';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import { User } from './domain/user/user.entity';
+import { Admin } from './domain/admin/admin.entity';
 
 const config: Options = {
   driver: PostgreSqlDriver,
@@ -10,7 +11,7 @@ const config: Options = {
   user: process.env.DB_USER || 'user',
   password: process.env.DB_PASSWORD || 'password',
   dbName: process.env.DB_NAME || 'myapp',
-  entities: [User],
+  entities: [User, Admin],
   entitiesTs: ['./src/domain/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   debug: process.env.NODE_ENV !== 'production',
